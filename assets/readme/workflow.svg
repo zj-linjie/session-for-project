@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="455" viewBox="0 0 1200 455" role="img" aria-labelledby="workflow-title workflow-desc">
+  <title id="workflow-title">Session for Project workflow</title>
+  <desc id="workflow-desc">Five stages: ground in the project, snapshot prior memory, route facts into canonical documents, validate the recovery routes, and resume a new session.</desc>
+  <defs>
+    <marker id="workflow-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#d9952b"/>
+    </marker>
+    <pattern id="workflow-lines" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#30394e" stroke-width="1" opacity=".35"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="455" rx="26" fill="#151b2b"/>
+  <rect width="1200" height="455" rx="26" fill="url(#workflow-lines)"/>
+  <text x="60" y="58" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="3" fill="#a5a5d0">THE RECOVERY LOOP</text>
+  <text x="60" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="34" font-weight="720" fill="#f5f0e7">From chat context to project memory.</text>
+  <path d="M116 235H1080" stroke="#d9952b" stroke-width="3" marker-end="url(#workflow-arrow)"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g transform="translate(60 158)">
+      <circle cx="52" cy="52" r="32" fill="#d9952b"/>
+      <text x="52" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#151b2b">01</text>
+      <text x="0" y="127" font-size="22" font-weight="700" fill="#f5f0e7">Ground</text>
+      <text x="0" y="155" font-size="17" fill="#b8bdca">inspect state</text>
+      <text x="0" y="179" font-size="17" fill="#b8bdca">and constraints</text>
+    </g>
+    <g transform="translate(278 158)">
+      <circle cx="52" cy="52" r="32" fill="#6e70a9"/>
+      <text x="52" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#f5f0e7">02</text>
+      <text x="0" y="127" font-size="22" font-weight="700" fill="#f5f0e7">Snapshot</text>
+      <text x="0" y="155" font-size="17" fill="#b8bdca">copy prior docs</text>
+      <text x="0" y="179" font-size="17" fill="#b8bdca">with checksums</text>
+    </g>
+    <g transform="translate(508 158)">
+      <circle cx="52" cy="52" r="32" fill="#d9952b"/>
+      <text x="52" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#151b2b">03</text>
+      <text x="0" y="127" font-size="22" font-weight="700" fill="#f5f0e7">Route</text>
+      <text x="0" y="155" font-size="17" fill="#b8bdca">design · architecture</text>
+      <text x="0" y="179" font-size="17" fill="#b8bdca">· status</text>
+    </g>
+    <g transform="translate(738 158)">
+      <circle cx="52" cy="52" r="32" fill="#6e70a9"/>
+      <text x="52" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#f5f0e7">04</text>
+      <text x="0" y="127" font-size="22" font-weight="700" fill="#f5f0e7">Validate</text>
+      <text x="0" y="155" font-size="17" fill="#b8bdca">links · paths</text>
+      <text x="0" y="179" font-size="17" fill="#b8bdca">· recovery routes</text>
+    </g>
+    <g transform="translate(968 158)">
+      <circle cx="52" cy="52" r="32" fill="#d9952b"/>
+      <text x="52" y="62" text-anchor="middle" font-size="28" font-weight="800" fill="#151b2b">05</text>
+      <text x="0" y="127" font-size="22" font-weight="700" fill="#f5f0e7">Resume</text>
+      <text x="0" y="155" font-size="17" fill="#b8bdca">new session</text>
+      <text x="0" y="179" font-size="17" fill="#b8bdca">picks a lane</text>
+    </g>
+  </g>
+
+  <path d="M60 383H1140" stroke="#48516a" stroke-width="1"/>
+  <text x="60" y="416" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#a5a5d0">DURABLE DECISIONS STAY IN DOCS</text>
+  <text x="1140" y="416" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#a5a5d0">UNFINISHED INTENT STAYS IN STATUS</text>
+</svg>

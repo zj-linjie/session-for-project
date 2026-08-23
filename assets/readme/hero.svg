@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">Session for Project — durable project memory for Codex</title>
+  <desc id="hero-desc">A warm paper and navy diagram showing AGENTS.md routing project context into design, architecture, status, and archived snapshots.</desc>
+  <defs>
+    <pattern id="paper-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#d7d0c3" stroke-width="1" opacity=".38"/>
+    </pattern>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#d9952b"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="400" rx="28" fill="#f5f0e7"/>
+  <rect width="1200" height="400" rx="28" fill="url(#paper-grid)"/>
+  <path d="M50 334H1150" stroke="#d9952b" stroke-width="3" opacity=".75"/>
+
+  <g transform="translate(60 50)" fill="#151b2b">
+    <text x="0" y="20" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="3" fill="#7273a8">PROJECT MEMORY / CODEX SKILL</text>
+    <text x="0" y="92" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="55" font-weight="760" letter-spacing="-1.5">SESSION FOR</text>
+    <text x="0" y="151" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="55" font-weight="760" letter-spacing="-1.5">PROJECT</text>
+    <rect x="2" y="172" width="215" height="8" rx="4" fill="#d9952b"/>
+    <text x="0" y="218" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="650">Keep context in the repository.</text>
+    <text x="0" y="255" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" fill="#4a5162">A safe, reusable workflow for starting a new</text>
+    <text x="0" y="282" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" fill="#4a5162">Codex session without rebuilding the story from chat.</text>
+    <text x="0" y="326" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" fill="#7273a8">same directory · git or non-git · no routine handoff</text>
+  </g>
+
+  <g transform="translate(672 50)">
+    <rect x="0" y="0" width="468" height="278" rx="20" fill="#151b2b"/>
+    <text x="32" y="35" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2" fill="#a5a5d0">ROUTE THE CONTEXT</text>
+
+    <rect x="32" y="61" width="174" height="50" rx="11" fill="#d9952b"/>
+    <text x="119" y="92" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="22" font-weight="700" fill="#151b2b">AGENTS.md</text>
+
+    <path d="M206 86H232M232 86V62H260M232 86V114H260M232 86V166H260" fill="none" stroke="#d9952b" stroke-width="2.5" marker-end="url(#arrow-amber)"/>
+    <rect x="260" y="43" width="174" height="38" rx="9" fill="#272f45" stroke="#6e70a9"/>
+    <rect x="260" y="95" width="174" height="38" rx="9" fill="#272f45" stroke="#6e70a9"/>
+    <rect x="260" y="147" width="174" height="38" rx="9" fill="#272f45" stroke="#6e70a9"/>
+    <text x="347" y="68" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#f5f0e7">DESIGN.md</text>
+    <text x="347" y="120" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#f5f0e7">ARCHITECTURE.md</text>
+    <text x="347" y="172" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" fill="#f5f0e7">STATUS.md</text>
+
+    <path d="M119 111V223" fill="none" stroke="#69709b" stroke-width="2" stroke-dasharray="6 7"/>
+    <rect x="32" y="211" width="174" height="42" rx="10" fill="#1e2639" stroke="#d9952b" stroke-width="1.5"/>
+    <path d="M53 226h15v14H53zM57 222h7v4h-7z" fill="none" stroke="#d9952b" stroke-width="2"/>
+    <text x="80" y="238" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" fill="#f5f0e7">archive / snapshot</text>
+    <text x="260" y="230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#b8bdca">durable decisions → docs</text>
+    <text x="260" y="252" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" fill="#b8bdca">unfinished intent → status</text>
+  </g>
+</svg>
