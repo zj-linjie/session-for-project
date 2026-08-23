@@ -8,6 +8,11 @@
 </p>
 
 <p align="center">
+  <a href="./README.md">English</a> ·
+  <a href="./README.zh-CN.md">简体中文</a>
+</p>
+
+<p align="center">
   <a href="#what-it-solves">What it solves</a> ·
   <a href="#how-it-works">How it works</a> ·
   <a href="#install">Install</a> ·
