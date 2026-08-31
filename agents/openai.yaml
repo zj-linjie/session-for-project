@@ -1,4 +1,4 @@
 interface:
   display_name: "Session for Project"
-  short_description: "为任意项目建立可跨会话复用的本地记忆与安全恢复文档"
-  default_prompt: "Use $session-for-project to create or refresh durable cross-session memory for the current project."
+  short_description: "为成熟项目整理按需生成的长期记忆与安全恢复文档"
+  default_prompt: "Use $session-for-project only for an explicit long-term project-memory refresh after a milestone, major refactor, or consolidation request."
