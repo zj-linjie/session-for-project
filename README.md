@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  <strong>A reusable Codex Skill for keeping project context in the repository.</strong><br />
-  New session? Read the project. Continue the work.
+  <strong>A reusable Codex Skill for curating durable project memory.</strong><br />
+  After a milestone, make the project recoverable without a handoff.
 </p>
 
 <p align="center">
@@ -14,42 +14,55 @@
 
 <p align="center">
   <a href="#what-it-solves">What it solves</a> ·
+  <a href="#when-to-use-it">When to use it</a> ·
   <a href="#how-it-works">How it works</a> ·
-  <a href="#install">Install</a> ·
-  <a href="#use-it">Use it</a>
+  <a href="#install">Install</a>
 </p>
 
 ## What it solves
 
-Chat history is a poor place to keep a project’s durable truth. Important decisions get repeated in handoffs, temporary paths go stale, and a new session has to reconstruct intent from a dirty worktree.
+`session-for-project` is for an established project after a milestone, major refactor, or an explicit request to govern long-term project memory. It turns verified, stable facts into a small, auditable set of project-local pointers and documents so a fresh session can recover the project without relying on chat history.
 
-`session-for-project` turns that context into a small, auditable document system:
+The schema follows the project rather than a fixed template:
 
-- `AGENTS.md` stays short and routes each kind of task to the right detail.
-- `docs/DESIGN.md` keeps confirmed product and visual decisions.
-- `docs/ARCHITECTURE.md` keeps verified data flow, state, authority, and deployment boundaries.
-- `docs/STATUS.md` keeps only unfinished intent that code and Git cannot reveal.
-- Previous equivalents are copied into a timestamped archive before they are refreshed.
+- Keep an `AGENTS.md` router only when an agent workflow needs durable routing.
+- Add design, architecture, domain, ADR, or status documents only when verified facts justify them.
+- Preserve a healthy existing document structure instead of renaming or copying it to canonical paths.
+- Use Git history for tracked, clean, committed documents; archive untracked, transient, external, or explicitly authorized dirty material when it needs protection.
 
-It works for Git repositories, non-Git directories, and empty projects. It is designed for ordinary new sessions in the same project directory, so routine handoffs become the exception instead of the storage layer.
+Git, Issues, and Roadmap remain the normal continuity sources for ordinary development. This Skill is a deliberate project-memory refresh, not a step every Session must take.
+
+## When to use it
+
+Run it when the user explicitly asks to establish, refresh, consolidate, or govern project memory—for example:
+
+```text
+$session-for-project 为这个成熟项目整理长期记忆
+$session-for-project 大重构完成后，把稳定事实沉淀到项目文档
+$session-for-project 把已有 handoff 吸收到正式项目记忆
+```
+
+Use the normal development workflow for an Issue, Roadmap, PRD, routine Session switch, one-off handoff, or chat compaction. If unfinished work has uncommitted continuity information, prefer a one-time handoff or transient preservation. Explicitly asking to absorb that material into formal project memory is the point at which this Skill becomes appropriate.
+
+The acceptance boundary is simple: a mature-project milestone refresh runs; an Issue completion followed by a fresh Session does not; unfinished dirty continuity is routed to handoff or transient preservation.
 
 ## How it works
 
 <p align="center">
-  <img src="./assets/readme/workflow.svg" width="100%" alt="Five-stage recovery loop: ground, snapshot, route, validate, resume" />
+  <img src="./assets/readme/workflow.svg" width="100%" alt="Gated project-memory refresh: trigger, ground, select, preserve, validate" />
 </p>
 
-The workflow is deliberately conservative:
+The workflow is deliberately gated and adaptive:
 
-1. Ground in the current files, instructions, and worktree state.
-2. Snapshot existing memory documents with checksums before changing them.
-3. Route durable facts into the canonical documents instead of duplicating them.
-4. Validate links, paths, status size, archives, and the three recovery routes.
-5. Let the next session choose the relevant document from `AGENTS.md`.
+1. Confirm explicit project-memory intent and the milestone, major change, or consolidation reason.
+2. Ground in current files, instructions, configuration, and worktree state.
+3. Select only the memory documents justified by project complexity.
+4. Use Git history for clean committed files and snapshot sources Git cannot recover safely.
+5. Validate links, paths, dirty-state protection, schema decisions, and the three acceptance scenarios.
 
 ## Install
 
-Clone this private repository into your Codex skills directory:
+Clone this repository into your Codex skills directory:
 
 ```bash
 git clone git@github.com:zj-linjie/session-for-project.git "${CODEX_HOME:-$HOME/.codex}/skills/session-for-project"
@@ -63,58 +76,62 @@ git -C "${CODEX_HOME:-$HOME/.codex}/skills/session-for-project" pull --ff-only
 
 The repository contains the Skill entrypoint, its document contract, and this README/visual layer. It does not install dependencies or alter project code.
 
-## Use it
+## Document selection
 
-From the project directory, invoke the Skill directly:
+There is no mandatory four-document bundle. A project may need only an existing instruction file, a router, or one focused authority:
 
-```text
-$session-for-project 为当前项目建立跨会话记忆
-```
+| Need | Document | Decision |
+|---|---|---|
+| Agent-facing routing | `AGENTS.md` or an existing instruction file | Keep or add only when routing is needed |
+| Stable product or visual truth | Design authority | Conditional |
+| Runtime, data, workflow, or deployment truth | Architecture authority | Conditional |
+| Unrecoverable unfinished intent | `STATUS.md` or equivalent | Conditional |
+| Complex domain semantics or durable rationale | Domain doc or ADR | Conditional |
 
-Or point it at another directory:
-
-```text
-$session-for-project 为 /path/to/project 建立跨会话记忆
-```
-
-The Skill reads the project’s existing instructions first. It preserves live `AGENTS.md` and `CLAUDE.md` roles, archives prior memory documents, and reports anything it cannot safely infer.
+If a need is absent, leave its document absent. A simple project must not acquire empty DESIGN or ARCHITECTURE placeholders merely because this Skill was run.
 
 ## The safety model
 
-### Durable vs. temporary
+### Git history first
 
-Durable product decisions belong in `DESIGN.md`. Durable system and workflow decisions belong in `ARCHITECTURE.md`. An unfinished objective belongs in `STATUS.md` until it is complete, then the status returns to `clear`.
+For a tracked file whose current version is clean and committed, record the pre-change commit SHA, path, and reason in the report and recover the old bytes through Git. Do not create a duplicate full snapshot in `docs/archive/session-memory/`.
 
-### Archive before rewrite
+Dirty tracked files stay intact unless the user explicitly authorizes absorbing or reorganizing them; then create a focused diff or exact backup first. Untracked, transient, external, or soon-to-be-moved sources still receive exact, checksum-verified snapshots before they change.
 
-The archive is an exact, checksum-verified snapshot under:
-
-```text
-docs/archive/session-memory/<UTC-timestamp>/
-```
-
-Tool-loaded instructions remain in place. Clearly transient files such as an absorbed handoff may move into the archive only after references are checked.
+Tool-loaded instruction files keep their live role. Existing dirty changes, publishing state, deployments, and external systems remain outside the workflow’s authority.
 
 ### Same-directory boundary
 
-The memory documents are project-local. Ignored drafts, uncommitted changes, and machine-local assets do not automatically follow a different Git worktree or another computer; the Skill records that limitation instead of hiding it.
+Memory documents are project-local. Ignored drafts, uncommitted changes, and machine-local assets do not automatically follow a different Git worktree or another computer; the Skill records that limitation instead of hiding it.
+
+## Responsibilities
+
+| Tool or source | Role |
+|---|---|
+| Session Docter | Context-cost health, audit, fix, and new-project bootstrap |
+| `session-for-project` | Long-term project-memory refresh for an established project |
+| Handoff | One unfinished task’s temporary transfer between Sessions |
+| Git / Issue / Roadmap | Primary continuity sources during normal development |
 
 ## Repository map
 
 ```text
-SKILL.md                              # model-facing entrypoint
+SKILL.md                              # model-facing entrypoint and trigger boundary
 agents/openai.yaml                   # Codex UI metadata
-references/document-contract.md      # audit, snapshot, and validation rules
+references/document-contract.md      # schema, history, and acceptance rules
 assets/readme/                        # README visuals and editable SVG sources
 ```
 
 ## What it intentionally does not do
 
-- It does not replace a project’s live instruction files without preserving their rules.
+- It does not make every Session pass through a project-memory audit.
+- It does not replace Git, Issues, Roadmap, one-time handoff, or chat compaction.
+- It does not force every project into `AGENTS.md` plus DESIGN/ARCHITECTURE/STATUS placeholders.
+- It does not replace a project’s live instruction files or discard their rules.
 - It does not invent architecture, design decisions, tests, adoption, or compatibility claims.
 - It does not publish content, deploy a site, commit code, or push changes as part of memory setup.
-- It does not turn every old README, API document, or ADR into session memory.
+- It does not automatically clean or delete existing project documents.
 
 ## License
 
-No license has been declared for this private repository yet.
+No license has been declared for this repository yet.
